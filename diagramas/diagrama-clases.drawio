@@ -1,0 +1,427 @@
+<mxfile host="app.diagrams.net" pages="6">
+  <diagram id="basico_sinsol" name="basico.sinsol">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="basico_sinsol_titulo_3" value="Ejemplo 1 · Básico · SIN refactorizar  (com.udc.reut.cod.app.refactorizacioncodigoapp.basico.sinsol)" vertex="1" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;">
+          <mxGeometry x="40" y="10" width="1200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="basico_sinsol_Factura_1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Factura&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calc(p: double[], c: int[], t: String): double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="380" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="basico_sinsol_nota_2" value="&lt;b&gt;Code smells&lt;/b&gt;&lt;br&gt;• Nombres poco expresivos (calc, p, c, t, s, d, r)&lt;br&gt;• Números mágicos (0.1, 0.05, 0.19)&lt;br&gt;• Método largo con varias responsabilidades&lt;br&gt;• Arreglos paralelos precios[] / cantidades[]&lt;br&gt;• Tipo de cliente como String" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fillColor=#ffffff;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="70" width="360" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="basico_consol" name="basico.consol">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="basico_consol_titulo_7" value="Ejemplo 1 · Básico · REFACTORIZADO  (com.udc.reut.cod.app.refactorizacioncodigoapp.basico.consol)" vertex="1" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;">
+          <mxGeometry x="40" y="10" width="1200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="basico_consol_Factura_1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Factura&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- S:TASA_IVA: double = 0.19&lt;br&gt;- tipoCliente: TipoCliente&lt;br&gt;- lineas: List&amp;lt;LineaFactura&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ Factura(tipoCliente: TipoCliente)&lt;br&gt;+ agregarLinea(precioUnitario: double, cantidad: int): void&lt;br&gt;+ calcularSubtotal(): double&lt;br&gt;+ calcularDescuento(): double&lt;br&gt;+ calcularIva(): double&lt;br&gt;+ calcularTotal(): double&lt;br&gt;- S:redondearADosDecimales(valor: double): double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="400" height="226" as="geometry" />
+        </mxCell>
+        <mxCell id="basico_consol_LineaFactura_2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;LineaFactura&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- precioUnitario: double&lt;br&gt;- cantidad: int&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ LineaFactura(precioUnitario: double, cantidad: int)&lt;br&gt;+ calcularSubtotal(): double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="600" y="70" width="360" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="basico_consol_TipoCliente_3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;enumeration&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;TipoCliente&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;REGULAR(0.0)&lt;br&gt;FRECUENTE(0.05)&lt;br&gt;VIP(0.10)&lt;br&gt;- porcentajeDescuento: double&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularDescuento(monto: double): double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="600" y="290" width="360" height="157" as="geometry" />
+        </mxCell>
+        <mxCell id="basico_consol_rel_4" value="" style="startArrow=diamondThin;startFill=1;startSize=16;endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="basico_consol_Factura_1" target="basico_consol_LineaFactura_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="basico_consol_rel_4_m" value="0..*" vertex="1" connectable="0" parent="basico_consol_rel_4" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="basico_consol_rel_5" value="" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="basico_consol_Factura_1" target="basico_consol_TipoCliente_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="basico_consol_rel_5_m" value="1" vertex="1" connectable="0" parent="basico_consol_rel_5" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;">
+          <mxGeometry x="0.8" relative="1" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="basico_consol_nota_6" value="&lt;b&gt;Refactorizaciones&lt;/b&gt;&lt;br&gt;• Renombrar variables y métodos&lt;br&gt;• Reemplazar números mágicos por constantes&lt;br&gt;• Extraer método&lt;br&gt;• Reemplazar arreglos paralelos por objeto (LineaFactura)&lt;br&gt;• Reemplazar String por Enum (TipoCliente)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fillColor=#ffffff;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="380" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="intermedio_sinsol" name="intermedio.sinsol">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="intermedio_sinsol_titulo_3" value="Ejemplo 2 · Intermedio · SIN refactorizar  (com.udc.reut.cod.app.refactorizacioncodigoapp.intermedio.sinsol)" vertex="1" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;">
+          <mxGeometry x="40" y="10" width="1200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_sinsol_Nomina_1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Nomina&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularPago(tipo: String, salarioBase: double, horas: int, ventas: double): double&lt;br&gt;+ calcularTotalNomina(tipos: String[], salarios: double[], horas: int[], ventas: double[]): double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="620" height="107" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_sinsol_nota_2" value="&lt;b&gt;Code smells&lt;/b&gt;&lt;br&gt;• Condicional por tipo (if/else sobre String) → viola OCP&lt;br&gt;• Lista larga de parámetros que no aplican a todos los tipos&lt;br&gt;• Arreglos paralelos&lt;br&gt;• Números mágicos (2000000, 162000, 15000, 160, 0.25, 0.03)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fillColor=#ffffff;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="70" width="400" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="intermedio_consol" name="intermedio.consol">
+    <mxGraphModel dx="1689" dy="882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="intermedio_consol_titulo_11" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" value="Ejemplo 2 · Intermedio · REFACTORIZADO  (com.udc.reut.cod.app.refactorizacioncodigoapp.intermedio.consol)" vertex="1">
+          <mxGeometry height="36" width="1200" x="40" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_consol_Nomina_1" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Nomina&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- empleados: List&amp;lt;Empleado&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ agregarEmpleado(empleado: Empleado): void&lt;br&gt;+ getEmpleados(): List&amp;lt;Empleado&amp;gt;&lt;br&gt;+ calcularTotal(): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="124" width="330" x="40" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_consol_Empleado_2" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;&lt;i&gt;Empleado&lt;/i&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- nombre: String&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;# Empleado(nombre: String)&lt;br&gt;+ getNombre(): String&lt;br&gt;+ A:calcularPago(): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="300" x="500" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_consol_EmpleadoPlanta_3" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EmpleadoPlanta&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- S:TOPE_AUXILIO_TRANSPORTE: double = 2000000&lt;br&gt;- S:AUXILIO_TRANSPORTE: double = 162000&lt;br&gt;- salarioBase: double&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ EmpleadoPlanta(nombre: String, salarioBase: double)&lt;br&gt;+ calcularPago(): double&lt;br&gt;- calcularAuxilioTransporte(): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="158" width="400" x="40" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_consol_EmpleadoPorHoras_4" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EmpleadoPorHoras&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- S:TARIFA_HORA: double = 15000&lt;br&gt;- S:HORAS_ORDINARIAS: int = 160&lt;br&gt;- S:RECARGO_HORA_EXTRA: double = 0.25&lt;br&gt;- horasTrabajadas: int&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ EmpleadoPorHoras(nombre: String, horasTrabajadas: int)&lt;br&gt;+ calcularPago(): double&lt;br&gt;- calcularRecargoHorasExtra(): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="175" width="380" x="470" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_consol_Vendedor_5" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Vendedor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- S:PORCENTAJE_COMISION: double = 0.03&lt;br&gt;- salarioBase: double&lt;br&gt;- ventas: double&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ Vendedor(nombre: String, salarioBase: double, ventas: double)&lt;br&gt;+ calcularPago(): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="141" width="420" x="880" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_consol_rel_6" edge="1" parent="1" source="intermedio_consol_EmpleadoPlanta_3" style="endArrow=block;endFill=0;endSize=14;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="intermedio_consol_Empleado_2" value="">
+          <mxGeometry relative="1" x="0.2083" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="320" />
+              <mxPoint x="550" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="intermedio_consol_rel_7" edge="1" parent="1" source="intermedio_consol_EmpleadoPorHoras_4" style="endArrow=block;endFill=0;endSize=14;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="intermedio_consol_Empleado_2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_consol_rel_8" edge="1" parent="1" source="intermedio_consol_Vendedor_5" style="endArrow=block;endFill=0;endSize=14;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="intermedio_consol_Empleado_2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="310" />
+              <mxPoint x="740" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="intermedio_consol_rel_9" edge="1" parent="1" source="intermedio_consol_Nomina_1" style="startArrow=diamondThin;startFill=0;startSize=16;endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="intermedio_consol_Empleado_2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="intermedio_consol_rel_9_m" connectable="0" parent="intermedio_consol_rel_9" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="intermedio_consol_nota_10" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fillColor=#ffffff;strokeColor=#666666;fontSize=12;" value="&lt;b&gt;Refactorizaciones&lt;/b&gt;&lt;br&gt;• Reemplazar condicional por polimorfismo&lt;br&gt;• Principio Abierto/Cerrado (OCP)&lt;br&gt;• Objetos en lugar de listas largas de parámetros&lt;br&gt;• Constantes con nombre en cada subclase" vertex="1">
+          <mxGeometry height="110" width="340" x="900" y="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="avanzado_sinsol" name="avanzado.sinsol">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="avanzado_sinsol_titulo_3" value="Ejemplo 3 · Avanzado · SIN refactorizar  (com.udc.reut.cod.app.refactorizacioncodigoapp.avanzado.sinsol)" vertex="1" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;">
+          <mxGeometry x="40" y="10" width="1200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_sinsol_ProcesadorPedidos_1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ProcesadorPedidos&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ S:precios: Map&amp;lt;String, Double&amp;gt;&lt;br&gt;+ S:stock: Map&amp;lt;String, Integer&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ procesar(email: String, telefono: String, codigos: String[], cantidades: int[],&lt;br&gt;        cupon: String, envio: String, pago: String): double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="560" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_sinsol_nota_2" value="&lt;b&gt;Code smells&lt;/b&gt;&lt;br&gt;• Método Dios: 7 responsabilidades en un método (viola SRP)&lt;br&gt;• Estado global mutable (mapas static públicos)&lt;br&gt;• Cadenas if/else para cupón, envío y pago (viola OCP)&lt;br&gt;• Acoplado a System.out para notificar&lt;br&gt;• Obsesión por primitivos y arreglos paralelos&lt;br&gt;• Bug: producto repetido deja stock negativo" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fillColor=#ffffff;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="70" width="420" height="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="avanzado_consol" name="avanzado.consol">
+    <mxGraphModel dx="4566" dy="1521" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="avanzado_consol_titulo_64" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" value="Ejemplo 3 · Avanzado · REFACTORIZADO  (com.udc.reut.cod.app.refactorizacioncodigoapp.avanzado.consol)" vertex="1">
+          <mxGeometry height="36" width="1200" x="40" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_pkg_servicio_1" parent="1" style="swimlane;html=1;startSize=26;fontStyle=1;align=left;spacingLeft=8;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#fbfbfb;container=1;collapsible=0;rounded=0;" value="«paquete» servicio" vertex="1">
+          <mxGeometry height="258" width="470" x="40" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_ProcesadorPedidos_9" parent="avanzado_consol_pkg_servicio_1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ProcesadorPedidos&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- inventario: Inventario&lt;br&gt;- notificadores: List&amp;lt;Notificador&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ ProcesadorPedidos(inventario: Inventario, notificadores: List&amp;lt;Notificador&amp;gt;)&lt;br&gt;+ procesar(pedido: Pedido): Recibo&lt;br&gt;- agruparCantidades(pedido: Pedido): Map&amp;lt;String, Integer&amp;gt;&lt;br&gt;- verificarStock(cantidades: Map&amp;lt;String, Integer&amp;gt;): void&lt;br&gt;- descontarInventario(cantidades: Map&amp;lt;String, Integer&amp;gt;): void&lt;br&gt;- notificar(pedido: Pedido, recibo: Recibo): void&lt;/p&gt;" vertex="1">
+          <mxGeometry height="192" width="430" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_pkg_inventario_2" parent="1" style="swimlane;html=1;startSize=26;fontStyle=1;align=left;spacingLeft=8;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#fbfbfb;container=1;collapsible=0;rounded=0;" value="«paquete» inventario" vertex="1">
+          <mxGeometry height="404" width="340" x="560" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_Inventario_10" parent="avanzado_consol_pkg_inventario_2" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Inventario&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ buscarProducto(codigo: String): Producto&lt;br&gt;+ consultarStock(codigo: String): int&lt;br&gt;+ descontar(codigo: String, cantidad: int): void&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="300" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_InventarioEnMemoria_11" parent="avanzado_consol_pkg_inventario_2" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;InventarioEnMemoria&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- productos: Map&amp;lt;String, Producto&amp;gt;&lt;br&gt;- existencias: Map&amp;lt;String, Integer&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ registrar(producto: Producto, cantidadInicial: int): void&lt;br&gt;+ buscarProducto(codigo: String): Producto&lt;br&gt;+ consultarStock(codigo: String): int&lt;br&gt;+ descontar(codigo: String, cantidad: int): void&lt;/p&gt;" vertex="1">
+          <mxGeometry height="158" width="300" x="20" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_pkg_notificacion_3" parent="1" style="swimlane;html=1;startSize=26;fontStyle=1;align=left;spacingLeft=8;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#fbfbfb;container=1;collapsible=0;rounded=0;" value="«paquete» notificacion" vertex="1">
+          <mxGeometry height="436" width="370" x="950" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_Notificador_12" parent="avanzado_consol_pkg_notificacion_3" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Notificador&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ notificar(cliente: Cliente, recibo: Recibo): void&lt;/p&gt;" vertex="1">
+          <mxGeometry height="106" width="330" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_NotificadorEmail_13" parent="avanzado_consol_pkg_notificacion_3" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NotificadorEmail&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ notificar(cliente: Cliente, recibo: Recibo): void&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="330" x="20" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_NotificadorSms_14" parent="avanzado_consol_pkg_notificacion_3" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NotificadorSms&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ notificar(cliente: Cliente, recibo: Recibo): void&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="330" x="20" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_pkg_excepciones_4" parent="1" style="swimlane;html=1;startSize=26;fontStyle=1;align=left;spacingLeft=8;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#fbfbfb;container=1;collapsible=0;rounded=0;" value="«paquete» excepciones" vertex="1">
+          <mxGeometry height="293" width="370" x="1380" y="214" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_PedidoInvalidoException_16" parent="avanzado_consol_pkg_excepciones_4" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PedidoInvalidoException&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ PedidoInvalidoException(mensaje: String)&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="330" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_StockInsuficienteException_17" parent="avanzado_consol_pkg_excepciones_4" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;StockInsuficienteException&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ StockInsuficienteException(codigoProducto: String,&lt;br&gt;        solicitado: int, disponible: int)&lt;/p&gt;" vertex="1">
+          <mxGeometry height="107" width="330" x="20" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_pkg_modelo_5" parent="1" style="swimlane;html=1;startSize=26;fontStyle=1;align=left;spacingLeft=8;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#fbfbfb;container=1;collapsible=0;rounded=0;" value="«paquete» modelo" vertex="1">
+          <mxGeometry height="658" width="1350" x="-120" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_Pedido_18" parent="avanzado_consol_pkg_modelo_5" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Pedido&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- cliente: Cliente&lt;br&gt;- items: List&amp;lt;ItemPedido&amp;gt;&lt;br&gt;- cupon: Cupon&lt;br&gt;- metodoEnvio: MetodoEnvio&lt;br&gt;- metodoPago: MetodoPago&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- Pedido(builder: Builder)&lt;br&gt;+ S:para(cliente: Cliente): Builder&lt;br&gt;+ getCliente(): Cliente&lt;br&gt;+ getItems(): List&amp;lt;ItemPedido&amp;gt;&lt;br&gt;+ calcularRecibo(): Recibo&lt;br&gt;- calcularSubtotal(): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="243" width="360" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_Cliente_20" parent="avanzado_consol_pkg_modelo_5" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;record&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Cliente&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ nombre: String&lt;br&gt;+ email: String&lt;br&gt;+ telefono: String&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ tieneEmail(): boolean&lt;br&gt;+ tieneTelefono(): boolean&lt;/p&gt;" vertex="1">
+          <mxGeometry height="157" width="280" x="460" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_Recibo_21" parent="avanzado_consol_pkg_modelo_5" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;record&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Recibo&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ subtotal: double&lt;br&gt;+ descuento: double&lt;br&gt;+ costoEnvio: double&lt;br&gt;+ recargo: double&lt;br&gt;+ total: double&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ S:de(subtotal: double, descuento: double, costoEnvio: double, recargo: double): Recibo&lt;br&gt;- S:redondear(valor: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="191" width="420" x="460" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_ItemPedido_22" parent="avanzado_consol_pkg_modelo_5" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;record&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;ItemPedido&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ producto: Producto&lt;br&gt;+ cantidad: int&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularSubtotal(): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="123" width="260" x="820" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_Producto_23" parent="avanzado_consol_pkg_modelo_5" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;record&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Producto&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ codigo: String&lt;br&gt;+ nombre: String&lt;br&gt;+ precio: double&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;(constructor compacto con validación)&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="260" x="960" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_Pedido_Builder_19" parent="avanzado_consol_pkg_modelo_5" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;static nested&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Pedido.Builder&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- cliente: Cliente&lt;br&gt;- items: List&amp;lt;ItemPedido&amp;gt;&lt;br&gt;- cupon: Cupon = new SinCupon()&lt;br&gt;- metodoEnvio: MetodoEnvio&lt;br&gt;- metodoPago: MetodoPago&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ agregar(producto: Producto, cantidad: int): Builder&lt;br&gt;+ conCupon(cupon: Cupon): Builder&lt;br&gt;+ enviarPor(metodoEnvio: MetodoEnvio): Builder&lt;br&gt;+ pagarCon(metodoPago: MetodoPago): Builder&lt;br&gt;+ construir(): Pedido&lt;/p&gt;" vertex="1">
+          <mxGeometry height="242" width="360" x="20" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_52" edge="1" parent="avanzado_consol_pkg_modelo_5" source="avanzado_consol_Pedido_Builder_19" style="endArrow=open;endFill=0;endSize=10;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Pedido_18" value="«construye»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DpC-IACXxMAs8zEQT-2z-2" edge="1" parent="avanzado_consol_pkg_modelo_5" source="avanzado_consol_Pedido_18" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Pedido_Builder_19" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="330" />
+              <mxPoint x="160" y="330" />
+            </Array>
+            <mxPoint x="200" y="289" as="sourcePoint" />
+            <mxPoint x="350" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_pkg_envio_6" parent="1" style="swimlane;html=1;startSize=26;fontStyle=1;align=left;spacingLeft=8;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#fbfbfb;container=1;collapsible=0;rounded=0;" value="«paquete» envio" vertex="1">
+          <mxGeometry height="556" width="370" x="1380" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_MetodoEnvio_24" parent="avanzado_consol_pkg_envio_6" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;MetodoEnvio&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularCosto(montoConDescuento: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="106" width="330" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_EnvioEstandar_25" parent="avanzado_consol_pkg_envio_6" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EnvioEstandar&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- S:COSTO: double = 10000&lt;br&gt;- S:MONTO_ENVIO_GRATIS: double = 200000&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularCosto(montoConDescuento: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="107" width="330" x="20" y="186" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_EnvioExpress_26" parent="avanzado_consol_pkg_envio_6" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EnvioExpress&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- S:COSTO: double = 25000&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularCosto(montoConDescuento: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="330" x="20" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_EnvioInternacional_27" parent="avanzado_consol_pkg_envio_6" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EnvioInternacional&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- S:COSTO: double = 50000&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularCosto(montoConDescuento: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="330" x="20" y="446" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_pkg_pago_7" parent="1" style="swimlane;html=1;startSize=26;fontStyle=1;align=left;spacingLeft=8;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#fbfbfb;container=1;collapsible=0;rounded=0;" value="«paquete» pago" vertex="1">
+          <mxGeometry height="416" width="340" x="1800" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_MetodoPago_28" parent="avanzado_consol_pkg_pago_7" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;MetodoPago&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularRecargo(monto: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="106" width="300" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_PagoTarjeta_29" parent="avanzado_consol_pkg_pago_7" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PagoTarjeta&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- S:PORCENTAJE_RECARGO: double = 0.03&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularRecargo(monto: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="300" x="20" y="186" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_PagoEfectivo_30" parent="avanzado_consol_pkg_pago_7" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PagoEfectivo&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularRecargo(monto: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="300" x="20" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_pkg_cupon_8" parent="1" style="swimlane;html=1;startSize=26;fontStyle=1;align=left;spacingLeft=8;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#fbfbfb;container=1;collapsible=0;rounded=0;" value="«paquete» cupon" vertex="1">
+          <mxGeometry height="407" width="1100" x="40" y="1354" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_Cupon_31" parent="avanzado_consol_pkg_cupon_8" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Cupon&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularDescuento(subtotal: double): double&lt;br&gt;+ ajustarCostoEnvio(costoEnvio: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="123" width="340" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_CatalogoCupones_32" parent="avanzado_consol_pkg_cupon_8" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CatalogoCupones&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- cupones: Map&amp;lt;String, Cupon&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ S:porDefecto(): CatalogoCupones&lt;br&gt;+ registrar(codigo: String, cupon: Cupon): void&lt;br&gt;+ buscar(codigo: String): Cupon&lt;/p&gt;" vertex="1">
+          <mxGeometry height="124" width="360" x="520" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_SinCupon_33" parent="avanzado_consol_pkg_cupon_8" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Null Object&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;SinCupon&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularDescuento(subtotal: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="106" width="300" x="20" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_CuponPorcentaje_34" parent="avanzado_consol_pkg_cupon_8" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CuponPorcentaje&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;- porcentaje: double&lt;br&gt;- montoMinimo: double&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ CuponPorcentaje(porcentaje: double)&lt;br&gt;+ CuponPorcentaje(porcentaje: double, montoMinimo: double)&lt;br&gt;+ calcularDescuento(subtotal: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="141" width="340" x="360" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_CuponEnvioGratis_35" parent="avanzado_consol_pkg_cupon_8" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CuponEnvioGratis&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;+ calcularDescuento(subtotal: double): double&lt;br&gt;+ ajustarCostoEnvio(costoEnvio: double): double&lt;/p&gt;" vertex="1">
+          <mxGeometry height="107" width="340" x="740" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_RuntimeException_15" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuntimeException&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:6px;&quot;&gt;(java.lang)&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="330" x="1400" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_36" edge="1" parent="1" source="avanzado_consol_ProcesadorPedidos_9" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Inventario_10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_36_m" connectable="0" parent="avanzado_consol_rel_36" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_37" edge="1" parent="1" source="avanzado_consol_ProcesadorPedidos_9" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Notificador_12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_37_m" connectable="0" parent="avanzado_consol_rel_37" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_38" edge="1" parent="1" source="avanzado_consol_ProcesadorPedidos_9" style="endArrow=open;endFill=0;endSize=10;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Pedido_18" value="«usa»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_39" edge="1" parent="1" source="avanzado_consol_ProcesadorPedidos_9" style="endArrow=open;endFill=0;endSize=10;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_StockInsuficienteException_17" value="«lanza»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_40" edge="1" parent="1" source="avanzado_consol_InventarioEnMemoria_11" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Inventario_10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_41" edge="1" parent="1" source="avanzado_consol_InventarioEnMemoria_11" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Producto_23" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="560" />
+              <mxPoint x="1190" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_41_m" connectable="0" parent="avanzado_consol_rel_41" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.8163" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_42" edge="1" parent="1" source="avanzado_consol_NotificadorEmail_13" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Notificador_12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_43" edge="1" parent="1" source="avanzado_consol_NotificadorSms_14" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Notificador_12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_44" edge="1" parent="1" source="avanzado_consol_PedidoInvalidoException_16" style="endArrow=block;endFill=0;endSize=14;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_RuntimeException_15" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_45" edge="1" parent="1" source="avanzado_consol_StockInsuficienteException_17" style="endArrow=block;endFill=0;endSize=14;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_PedidoInvalidoException_16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_46" edge="1" parent="1" source="avanzado_consol_Pedido_18" style="startArrow=diamondThin;startFill=1;startSize=16;endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_ItemPedido_22" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_46_m" connectable="0" parent="avanzado_consol_rel_46" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="1..*" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_47" edge="1" parent="1" source="avanzado_consol_Pedido_18" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Cliente_20" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_47_m" connectable="0" parent="avanzado_consol_rel_47" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_48" edge="1" parent="1" source="avanzado_consol_Pedido_Builder_19" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Cupon_31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_48_m" connectable="0" parent="avanzado_consol_rel_48" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_49" edge="1" parent="1" source="avanzado_consol_Pedido_18" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_MetodoEnvio_24" value="">
+          <mxGeometry relative="1" x="0.0532" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="940" />
+              <mxPoint x="440" y="940" />
+              <mxPoint x="440" y="1170" />
+              <mxPoint x="1360" y="1170" />
+              <mxPoint x="1360" y="713" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_49_m" connectable="0" parent="avanzado_consol_rel_49" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.7745" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_50" edge="1" parent="1" source="avanzado_consol_Pedido_18" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_MetodoPago_28" value="">
+          <mxGeometry relative="1" x="-0.1985" as="geometry">
+            <Array as="points">
+              <mxPoint x="1220" y="781.5" />
+              <mxPoint x="1220" y="580" />
+              <mxPoint x="1970" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_50_m" connectable="0" parent="avanzado_consol_rel_50" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.7996" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_51" edge="1" parent="1" source="avanzado_consol_Pedido_18" style="endArrow=open;endFill=0;endSize=10;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Recibo_21" value="«crea»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_53" edge="1" parent="1" source="avanzado_consol_ItemPedido_22" style="endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Producto_23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_53_m" connectable="0" parent="avanzado_consol_rel_53" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_54" edge="1" parent="1" source="avanzado_consol_EnvioEstandar_25" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_MetodoEnvio_24" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_55" edge="1" parent="1" source="avanzado_consol_EnvioExpress_26" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_MetodoEnvio_24" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_56" edge="1" parent="1" source="avanzado_consol_EnvioInternacional_27" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_MetodoEnvio_24" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_57" edge="1" parent="1" source="avanzado_consol_PagoTarjeta_29" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_MetodoPago_28" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_58" edge="1" parent="1" source="avanzado_consol_PagoEfectivo_30" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_MetodoPago_28" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_59" edge="1" parent="1" source="avanzado_consol_SinCupon_33" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Cupon_31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_60" edge="1" parent="1" source="avanzado_consol_CuponPorcentaje_34" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Cupon_31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_61" edge="1" parent="1" source="avanzado_consol_CuponEnvioGratis_35" style="endArrow=block;endFill=0;endSize=14;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Cupon_31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_62" edge="1" parent="1" source="avanzado_consol_CatalogoCupones_32" style="startArrow=diamondThin;startFill=0;startSize=16;endArrow=open;endFill=0;endSize=10;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="avanzado_consol_Cupon_31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="avanzado_consol_rel_62_m" connectable="0" parent="avanzado_consol_rel_62" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=11;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint x="6" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="avanzado_consol_nota_63" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fillColor=#ffffff;strokeColor=#666666;fontSize=12;" value="&lt;b&gt;Patrones y principios&lt;/b&gt;&lt;br&gt;• Strategy: Cupon, MetodoEnvio, MetodoPago&lt;br&gt;• Null Object: SinCupon&lt;br&gt;• Factory / Registro: CatalogoCupones&lt;br&gt;• Builder: Pedido.Builder&lt;br&gt;• Observer simplificado: Notificador&lt;br&gt;• SRP, OCP, DIP + inyección por constructor&lt;br&gt;• Records inmutables y excepciones de dominio" vertex="1">
+          <mxGeometry height="160" width="380" x="1400" y="1400" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
